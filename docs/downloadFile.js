@@ -1,4 +1,4 @@
-async function downloadPDF(url) {
+async function downloadPDF(url, filename) {
 	const downloadButton = document.querySelector('#download-button');
 	const messageArea = document.querySelector('#message-area');
 
@@ -14,7 +14,7 @@ async function downloadPDF(url) {
 		console.log(blobData)
 
 		messageArea.innerHTML = "save file";
-		await download('data:application/pdf;base64,' + blobData, 'toio_id_4x4.pdf', 'application/pdf');
+		await download('data:application/pdf;base64,' + blobData, filename, 'application/pdf');
 		messageArea.innerHTML = "complete";
 	} catch (e) {
 		messageArea.innerHTML = e.toString();
